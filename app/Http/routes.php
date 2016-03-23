@@ -12,14 +12,6 @@
 */
 // Route::get('', '');
 // Get main page.
-$menuItems = DB::table('Menu')->get();
-foreach($menuItems as $item){
-    Route::get($item->link, );
-}
-
-
-
-
 Route::get('/', 'MainController@run');
 // Fetch login page.
 Route::get('login', 'LoginController@run');

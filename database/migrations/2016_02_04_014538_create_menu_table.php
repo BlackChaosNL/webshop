@@ -13,13 +13,11 @@ class CreateMenuTable extends Migration
     public function up()
     {
         Schema::create('Menu', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('menu_item')->unique();
             $table->string('menu_parent')->nullable();
             $table->string('link');
             $table->timestamps();
-            $table->foreign('menu_parent')->references('menu_item')->on('Menu');
         });
     }
 
