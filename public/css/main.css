@@ -1,0 +1,40 @@
+/**
+ *  Stylesheet voor de WEBS2 webshop.
+ */
+.container{
+    font-family: 'Poppins', sans-serif;
+}
+
+.container #header{
+    font-size: xx-large;
+}
+
+.container #menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.container #menu li{
+    float: left;
+}
+
+.container #menu li a{
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.container #menu li a:hover{
+    background-color: #111;
+}
+
+#footer{
+    width: 100%;
+    display: block;
+
+}

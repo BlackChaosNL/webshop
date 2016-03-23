@@ -1,0 +1,1 @@
+<div id="copyright text-right">© Jeroen Vijgen, made with <a href="https://laravel.com/">laravel</a></div>
