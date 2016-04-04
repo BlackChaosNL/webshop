@@ -5,7 +5,7 @@ namespace Faker\Provider\id_ID;
 class Address extends \Faker\Provider\Address
 {
     /**
-     * @link http://bandung.go.id/images/download/daftarruasjalan.htm
+     * @link http://bandung.go.id/img/download/daftarruasjalan.htm
      **/
     protected static $street = array(
         "Abang", "Abdul", "Abdul Muis", "Abdul Rahmat", "Abdul. Muis", "Abdullah",

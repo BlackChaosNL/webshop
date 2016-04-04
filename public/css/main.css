@@ -1,40 +1,85 @@
 /**
  *  Stylesheet voor de WEBS2 webshop.
  */
+
 .container{
     font-family: 'Poppins', sans-serif;
 }
 
-.container #header{
-    font-size: xx-large;
-}
-
-.container #menu ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+div#banner{
+    -webkit-background-image: url("../img/banner.jpg");
+    -moz-background-image: url("../img/banner.jpg");
+    -o-background-image: url("../img/banner.jpg");
+    background-image: url("../img/banner.jpg");
+    background-size: 100% 600px;
+    background-position-y: -100px;
+    height: 200px;
     overflow: hidden;
-    background-color: #333;
 }
 
-.container #menu li{
+div#bannerCard{
+    -webkit-background-image: url("../img/ster.png");
+    -moz-background-image: url("../img/ster.png");
+    -o-background-image: url("../img/ster.png");
+    background-image: url("../img/ster.png");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: absolute;
     float: left;
+    padding: 35px;
+    margin: 25px 0px 0px 25px;
+    background-color: whitesmoke;
+    border: 2px;
+    border-color: #000;
+    -moz-box-shadow: 0 0 20px #000000;
+    -webkit-box-shadow: 0 0 20px #000000;
+    box-shadow: 0 0 20px #000000;
 }
 
-.container #menu li a{
-    display: block;
-    color: white;
-    text-align: left;
-    padding: 14px 16px;
-    text-decoration: none;
+div#bannerCard #bannerTitle{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: xx-large;
+    width: 100px;
+    letter-spacing: 16px;
 }
 
-.container #menu li a:hover{
-    background-color: #111;
+div#bannerCard #bannerSlang{
+    text-transform: uppercase;
+    color: gray;
 }
 
-#footer{
-    width: 100%;
-    display: block;
+div.pCard{
+    height: 325px;
+    padding: 12px;
+    margin: 2px 0px 0px 2px;
+    background-color: white;
+    border-color: #000;
+    -moz-box-shadow: 0 0 20px #000000;
+    -webkit-box-shadow: 0 0 20px #000000;
+    box-shadow: 0 0 20px #000000;
+}
 
+div .pCard .pPicture img{
+    float: left;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+}
+
+div .pCard .pPadding {
+    padding-left: 325px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+div .pCard .pPadding hr {
+    margin-top: 0px;
+}
+
+div .pCard .pPrice {
+    float: right;
+    margin: -60px 0px 0px 50%;
+    font-size: 60px;
 }

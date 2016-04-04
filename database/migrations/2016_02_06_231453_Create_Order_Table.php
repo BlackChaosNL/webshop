@@ -15,10 +15,13 @@ class CreateOrderTable extends Migration
         Schema::create('Order', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('order_id');
-            $table->integer('customer_id');
-            $table->integer('product_id');
+            $table->integer('customer_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->boolean('paid');
             $table->timestamps();
+
+            $table->foreign('customer_id')->references('id')->on('users');
+            $table->foreign('product_id')->references('id')->on('Product');
         });
     }
 
