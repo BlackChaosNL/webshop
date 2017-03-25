@@ -17,10 +17,9 @@ class CreateProductTable extends Migration
             $table->string('name');
             $table->integer('piece');
             $table->integer('category')->unsigned();
-            $table->string('small_desc', 200);
+            $table->string('small_desc', 100);
             $table->string('large_desc', 255);
-            $table->string('small_pic');
-            $table->string('large_pic');
+            $table->string('picture');
             $table->decimal('price');
             $table->timestamps();
 

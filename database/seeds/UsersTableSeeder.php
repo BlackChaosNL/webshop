@@ -23,17 +23,5 @@ class UsersTableSeeder extends Seeder
             'place' => '',
             'country' => 'Netherlands'
         ]);
-        DB::table('users')->insert([
-            'email' => 'admin@admin.nl',
-            'name' => 'Admin',
-            'surname' => '',
-            'password' => bcrypt('admin'),
-            'role' => 1,
-            'address' => '',
-            'housenr' => rand(1,600),
-            'zipcode' => rand(4,4).''.str_random(2),
-            'place' => '',
-            'country' => 'Netherlands'
-        ]);
     }
 }

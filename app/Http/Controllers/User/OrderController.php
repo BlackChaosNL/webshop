@@ -10,10 +10,13 @@ namespace app\Http\Controllers\User;
 
 use Illuminate\Routing\Controller;
 use App;
+use Auth;
 
 class OrderController extends Controller
 {
     public function run(){
-        return view('pages.user.orders');
+        return view('pages.user.orders', 
+            ['orders' => App\Order::where('customer_id', Auth::user()->id)->paginate(15)]
+        );
     }
 }
