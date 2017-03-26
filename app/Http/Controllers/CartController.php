@@ -80,18 +80,23 @@ class CartController extends Controller
     }
 
     public function checkOutCart(){
-        $latest = App\Order::all()->last();
         $cart = $this->getSavedCart();
-        if(!empty($latest)){
-            if(count($cart) > 0){
-                for($i = 0; $i < count($cart); $i++){
-                    $order = new App\Order;
-                    $order->order_id = $latest->order_id+1;
-                    $order->customer_id = Auth::user()->id;
-                    $order->product_id = $cart[$i][0];
-                }
-            }
+        $last = App\Order::all()->last();
+        $order = new App\Order;
+        $order->order_id = ($last != null) ? $last->order_id++ : 1;
+        $order->customer_id = \Auth::id();
+        $order->save();
+        for($i = 0; $i < count($cart); $i++){
+            $orderItem = new App\OrderItem;
+            $orderItem->order_id = $order->id;
+            $orderItem->product_id = $cart[$i][0];
+            $orderItem->pieces = $cart[$i][1];
+            $orderItem->amount = App\Product::where('id', $cart[$i][0])->first()->price * $cart[$i][1]; 
+            $orderItem->save();
         }
+        $this->clearCart();
+        \Session::flash('product', 'Your order has been successfully placed');
+        return back();
     }
 
     public function getSavedCart(){

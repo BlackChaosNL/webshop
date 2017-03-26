@@ -19,4 +19,10 @@ class OrderController extends Controller
             ['orders' => App\Order::where('customer_id', Auth::user()->id)->paginate(15)]
         );
     }
+
+    public function showDetails($id = null){
+        return view('pages.user.orderdetails', 
+            ['orders' => App\OrderItem::where('order_id', $id)->paginate(15)]
+        );
+    }
 }

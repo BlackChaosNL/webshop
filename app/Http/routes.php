@@ -44,6 +44,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('profile', 'UserController@showProfile');
         Route::post('profile', 'UserController@alterProfile');
         Route::get('orders', 'OrderController@run');
+        Route::get('orders/{id}', 'OrderController@showDetails')->where('id', '([1-9+])');
     });
     // Admin Group
     Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function(){
