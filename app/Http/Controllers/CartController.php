@@ -24,7 +24,6 @@ class CartController extends Controller
 
     public function addToCart($productId = null){
         $cart = $this->getSavedCart();
-        // Check if product is still available (in stock)
         $product = App\Product::where('id', $productId)->first();
         if($product != null && $product->piece > 0){
             if(count($cart) > 0){
@@ -53,8 +52,6 @@ class CartController extends Controller
 
     public function removeFromCart($productId = null){
         $cart = $this->getSavedCart();
-        // Add the product back into stock.
-
         if(count($cart) > 0){
             for($i = 0; $i < count($cart); $i++){
                 if($cart[$i][0] == $productId){
@@ -66,6 +63,7 @@ class CartController extends Controller
                     }else{
                         unset($cart[$i]);
                     }
+                    \Session::flash('product', 'Product has been removed.');
                 }
             }
         }
