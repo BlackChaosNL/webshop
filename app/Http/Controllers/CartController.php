@@ -24,30 +24,43 @@ class CartController extends Controller
 
     public function addToCart($productId = null){
         $cart = $this->getSavedCart();
-        if(count($cart) > 0){
-            $exists = 0;
-            for($i = 0; $i < count($cart); $i++){
-                if($cart[$i][0] == $productId){
-                    $cart[$i][1] = $cart[$i][1]+1;
-                    $exists = 1;
+        // Check if product is still available (in stock)
+        $product = App\Product::where('id', $productId)->first();
+        if($product != null && $product->piece > 0){
+            if(count($cart) > 0){
+                $exists = 0;
+                for($i = 0; $i < count($cart); $i++){
+                    if($cart[$i][0] == $productId){
+                        $cart[$i][1] = $cart[$i][1]+1;
+                        $exists = 1;
+                    }
                 }
-            }
-            if($exists == 0){
+                if($exists == 0){
+                    $cart[] = [$productId, 1];
+                }
+            }else{
                 $cart[] = [$productId, 1];
             }
+            $this->cart = $cart;
+            $this->saveCart($this->cart);
+            $product->piece--;
+            $product->save();
         }else{
-            $cart[] = [$productId, 1];
+            \Session::flash('product', 'The following product is not available anymore.');
         }
-        $this->cart = $cart;
-        $this->saveCart($this->cart);
         return back();
     }
 
     public function removeFromCart($productId = null){
         $cart = $this->getSavedCart();
+        // Add the product back into stock.
+
         if(count($cart) > 0){
             for($i = 0; $i < count($cart); $i++){
                 if($cart[$i][0] == $productId){
+                    $product = App\Product::where('id', $productId)->first();
+                    $product->piece++;
+                    $product->save();
                     if($cart[$i][1] > 1){
                         $cart[$i][1] = $cart[$i][1]-1;
                     }else{

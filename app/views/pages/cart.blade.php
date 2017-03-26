@@ -3,6 +3,11 @@ $fullPrice = 0;
 ?>
 @extends('layouts.master')
 @section('content')
+    @if(Session::has('product'))
+        <div class="alert-box information">
+            <h2>{{ Session::get('product') }}</2>
+        </div>
+    @endif
     <h1>Cart</h1>
     <hr />
     @if(!empty($cart))
@@ -12,7 +17,7 @@ $fullPrice = 0;
                 $fullPrice = $fullPrice+$i->price
             ?>
             <div class="pCard">
-                <div class="pPicture"><img src="img/big/{{ $i->large_pic }}" /></div>
+                <div class="pPicture"><img src="img/big/{{ $i->picture }}" /></div>
                 <div class="pPadding">
                     Name
                     <hr >

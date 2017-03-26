@@ -3,7 +3,7 @@
     <div class="well well-lg">
         <div class="nName">Name: {{ $product->name }}</div>
         <hr />
-        <div class="nPicture"><img src="../img/big/{{ $product->large_pic }}" /></div>
+        <div class="nPicture"><img src="../img/big/{{ $product->picture }}" /></div>
         <div class="nDescription">Description: {{ $product->large_desc }}</div>
         <div class="nPrice"><span class="glyphicon glyphicon-euro"></span> {{ $product->price }}</div>
         <a href="{{ URL::previous() }}" class="btn btn-raised">Back</a>

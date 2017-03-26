@@ -11,13 +11,13 @@ class ProductController extends Controller
     }
 
     public function getCategory($cat = null){
-        $getCatId = App\Category::where('id', $cat)->firstOrFail();
-        $getProducts = App\Product::where('category', $getCatId->id)->paginate(15);
-        return view('pages.products', ['category' => $getCatId, 'products' => $getProducts]);
+        return view('pages.products', 
+            ['category' => App\Category::where('id', $cat)->firstOrFail(), 
+            'products' => App\Product::where('category', App\Category::where('id', $cat)->firstOrFail()->id)->paginate(15)]
+        );
     }
 
     public function getProduct($id = null){
-        $getProduct = App\Product::where('id', $id)->firstOrFail();
-        return view('pages.product', ['product' => $getProduct]);
+        return view('pages.product', ['product' => App\Product::where('id', $id)->firstOrFail()]);
     }
 }
