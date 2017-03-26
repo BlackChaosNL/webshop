@@ -36,18 +36,15 @@ $fullPrice = 0;
             <hr />
         @endforeach
         <hr >
-        @if(Auth::guest())
-            <div style="float: right;">
-                Total Amount: <span class="glyphicon glyphicon-euro"></span> {{ $fullPrice }}
-                VAT/BTW: <span class="glyphicon glyphicon-euro"></span> {{ round($fullPrice/21) }} (21%)
+
+        <div style="float: right;">
+            Total Amount: <span class="glyphicon glyphicon-euro"></span> {{ $fullPrice }}
+            VAT/BTW: <span class="glyphicon glyphicon-euro"></span> {{ round($fullPrice/21) }} (21%)
+            @if(Auth::guest())
                 <a href="{{ url('/login') }}" class="btn btn-raised" >login</a> or <a href="{{ url('/register') }}" class="btn btn-raised" >Register a new account</a>
-            </div>
-        @else
-            <div style="float: right; text-align: right; font-size: 25px;">
-                Total Amount: <span class="glyphicon glyphicon-euro"></span> {{ $fullPrice }}<br />
-                VAT/BTW: <span class="glyphicon glyphicon-euro"></span> {{ round($fullPrice/21) }} (21%)<br />
+            @else
                 <a href="{{ url('/cart/purchase') }}" class="btn btn-raised btn-primary" >Pay</a> <br /><br /><br /><br />
-            </div>
-        @endif
+            @endif
+        </div>
     @endif
 @stop
