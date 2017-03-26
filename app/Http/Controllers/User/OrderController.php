@@ -22,7 +22,8 @@ class OrderController extends Controller
 
     public function showDetails($id = null){
         return view('pages.user.orderdetails', 
-            ['orders' => App\OrderItem::where('order_id', $id)->paginate(15)]
+            ['orderId' => $id, 
+                'orders' => App\OrderItem::where('order_id', $id)->paginate(15)]
         );
     }
 }

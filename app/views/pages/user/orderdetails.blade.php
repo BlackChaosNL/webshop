@@ -1,5 +1,6 @@
 @extends('layouts.user')
 @section('userPanel')
+    <h1>Order #{{ $orderId }}</h1>
     <table class="table table-bordered" >
         <thead>
         <th>Product</th>
@@ -17,4 +18,5 @@
             {{ $orders->links() }}
         </tbody>
     </table>
+    <a href="{{ url('/user/orders') }}" class="btn btn-raised" >Back to order overview</a>
 @endsection

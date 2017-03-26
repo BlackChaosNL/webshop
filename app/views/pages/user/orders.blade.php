@@ -9,7 +9,7 @@
         <tbody>
             @foreach($orders as $order)
                 <tr>
-                    <th scope="row" class="#"><a href="{{ url('user/orders/'. $order->order_id ) }}">{{ $order->order_id }}</a></th>
+                    <th scope="row" class="#"><a href="{{ url('user/orders/'. $order->order_id ) }}">#{{ $order->order_id }}</a></th>
                     <td>{{ \Auth::user()->name }}</td>
                     <td>{{ (is_numeric($order->paid)) ? "Yes" : "No" }}</td>
                 </tr>
