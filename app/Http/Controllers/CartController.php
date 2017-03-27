@@ -83,8 +83,9 @@ class CartController extends Controller
         $cart = $this->getSavedCart();
         $last = App\Order::all()->last();
         $order = new App\Order;
-        $order->order_id = ($last != null) ? $last->order_id++ : 1;
+        $order->order_id = ($last != null) ? $last->order_id+1 : 1;
         $order->customer_id = \Auth::id();
+        $order->paid = 1;
         $order->save();
         for($i = 0; $i < count($cart); $i++){
             $orderItem = new App\OrderItem;
