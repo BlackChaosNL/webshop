@@ -83,3 +83,16 @@ div .pCard .pPrice {
     margin: -60px 0px 0px 50%;
     font-size: 60px;
 }
+
+div .alert-box {
+    color:#555;
+    border-radius:10px;
+    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+    padding:10px 10px 10px 36px;
+    margin:10px;
+}
+
+div .alert-box .information {
+    background:#e3f7fc url('images/notice.png') no-repeat 10px 50%;
+    border:1px solid #8ed9f6;
+}

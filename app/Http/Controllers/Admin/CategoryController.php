@@ -16,17 +16,17 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function run(){
-        $categories = DB::table('categories')->paginate(15);
-        return view('pages.adm.categories', ['categories' => $categories]);
+        return view('pages.adm.categories', ['categories' => App\Category::paginate(15)]);
     }
 
     public function makeCategory(){
-        return view('pages.adm.makecategory');
+        return view('pages.adm.makecategory', ['categories' => App\Category::all()]);
     }
 
     public function alterTemp($id = null){
-        $category = App\Category::where('id', $id)->firstOrFail();
-        return view('pages.adm.altercategory', ['category' => $category]);
+        return view('pages.adm.altercategory', 
+            ['category' => App\Category::where('id', $id)->firstOrFail()]
+        );
     }
 
     public function alterCategory(Request $r, $id = null){
@@ -39,9 +39,10 @@ class CategoryController extends Controller
 
     public function addCategory(Request $r){
         $category = new App\Category;
-        $category->cat_name = $r->name;
+        $category->cat_name = $r->cat_name;
         $category->cat_parent = $r->parent;
         $category->save();
+        \Session::flash('feedback', 'Category ' . $r->cat_name . ' has been added');
         return back();
     }
 

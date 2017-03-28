@@ -18,7 +18,7 @@
                 <td><a href="{{ url('admin/categories/delete/'. $category->id) }}"><span class="glyphicon glyphicon-remove"></span></a></td>
             </tr>
         @endforeach
-        <?php echo $categories->links(); ?>
+        {{ $categories->links() }}
         <a href="{{ url('admin/categories/add') }}" class="btn btn-raised" >Add</a>
         </tbody>
     </table>

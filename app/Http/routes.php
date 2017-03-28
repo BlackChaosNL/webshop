@@ -70,7 +70,8 @@ Route::group(['middleware' => 'web'], function () {
         Route::group(['prefix' => 'products'], function(){
             Route::get('/add', 'ProductsController@addProduct');
             Route::post('/add', 'ProductsController@saveProduct');
-            Route::get('/remove/{id}', 'ProductsController@deleteProduct');
+            Route::get('/edit/{id}', 'ProductsController@editProduct')->where('id', '([0-9+])');
+            Route::get('/remove/{id}', 'ProductsController@deleteProduct')->where('id', '([0-9+])');
         });
         Route::get('categories', 'CategoryController@run');
         Route::group(['prefix' => 'categories'], function(){
