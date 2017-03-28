@@ -73,12 +73,10 @@ class PagesController extends Controller
      */
     public function deletePage($id = null){
         $page = App\Page::where('id', $id)->firstOrFail();
-        if(empty($id)){
-            return redirect('/admin/pages');
-        }else{
+        if(!empty($id)){
             $page->delete();
-            return redirect('/admin/pages');
         }
+        return redirect('/admin/pages');
     }
 
     /**
@@ -90,13 +88,11 @@ class PagesController extends Controller
     public function setVisibility($id = null, $visibility = 1){
         $page = App\Page::where('id', $id)->firstOrFail();
         if($visibility == 0){
-            $page->active = 0;
-            $page->save();
-            return redirect('/admin/pages');
+            $page->active = 0;    
         }else{
             $page->active = 1;
-            $page->save();
-            return redirect('/admin/pages');
         }
+        $page->save();
+        return redirect('/admin/pages');
     }
 }
