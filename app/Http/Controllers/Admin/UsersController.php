@@ -12,7 +12,6 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use App;
 use Illuminate\Support\Facades\Input;
-use Symfony\Component\HttpFoundation\Request;
 
 class UsersController extends Controller
 {
@@ -26,15 +25,15 @@ class UsersController extends Controller
         return view('pages.adm.alteruser', ['user' => $user]);
     }
 
-    public function saveUser($id = null){
+    public function saveUser(Request $r, $id = null){
         $user = App\User::where('id', $id)->firstOrFail();
-        $user->name = Input::get('name');
-        $user->surname = Input::get('surname');
-        $user->password = bcrypt(Input::get('password'));
-        $user->address = Input::get('address');
-        $user->housenr = Input::get('housenr');
-        $user->place = Input::get('place');
-        $user->country = Input::get('country');
+        $user->name = $r->name;
+        $user->surname = $r->surname;
+        $user->password = bcrypt($r->password);
+        $user->address = $r->address;
+        $user->housenr = $r->housenr;
+        $user->place = $r->place;
+        $user->country = $r->country;
         $user->save();
         return back();
     }

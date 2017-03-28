@@ -29,18 +29,18 @@ class CategoryController extends Controller
         return view('pages.adm.altercategory', ['category' => $category]);
     }
 
-    public function alterCategory($id = null){
+    public function alterCategory(Request $r, $id = null){
         $category = App\Category::where('id', $id)->firstOrFail();
-        $category = Input::get('cat_name');
-        $category = Input::get('parent');
+        $category->cat_name = $r->cat_name;
+        $category->cat_parent = $r->parent;
         $category->save();
         return back();
     }
 
-    public function addCategory(){
+    public function addCategory(Request $r){
         $category = new App\Category;
-        $category->cat_name = Input::get('name');
-        $category->cat_parent = Input::get('parent');
+        $category->cat_name = $r->name;
+        $category->cat_parent = $r->parent;
         $category->save();
         return back();
     }

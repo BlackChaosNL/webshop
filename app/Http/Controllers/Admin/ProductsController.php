@@ -16,4 +16,16 @@ class ProductsController extends Controller
     public function run(){
         return view('pages.adm.products');
     }
+
+    public function addProduct(){
+
+    }
+
+    public function saveProduct(){
+        
+    }
+
+    public function removeProduct(){
+
+    }
 }
