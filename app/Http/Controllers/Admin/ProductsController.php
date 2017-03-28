@@ -10,6 +10,7 @@ namespace app\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
 use App;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -22,7 +23,7 @@ class ProductsController extends Controller
     }
 
     public function saveProduct(){
-        
+
     }
 
     public function removeProduct(){

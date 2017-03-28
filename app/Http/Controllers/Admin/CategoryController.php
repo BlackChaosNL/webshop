@@ -10,8 +10,8 @@ namespace app\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
 use App;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {

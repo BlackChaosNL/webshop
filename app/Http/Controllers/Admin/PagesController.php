@@ -9,6 +9,7 @@
 namespace app\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Http\Request;
 use App;
 
 class PagesController extends Controller

@@ -11,7 +11,7 @@ namespace app\Http\Controllers\Admin;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use App;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
