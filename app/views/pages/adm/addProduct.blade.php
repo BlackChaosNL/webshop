@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('adminPanel')
-    <form class="well well-lg form-horizontal" method="POST" target="/add">
+    <form class="well well-lg form-horizontal" method="POST" target="/add" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>" >
         <fieldset>
             <legend>NEW PRODUCT</legend>
@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label" for="picture">Picture</label>
-                <input type="file" id="picture" multiple="">
+                <input type="file" id="picture" name="picture" multiple="">
                 <input type="text" readonly="" class="form-control" placeholder="Picture">
             </div>
             <div class="form-group">
@@ -37,12 +37,12 @@
             </div>
             <div class="form-group">
                 <label class="control-label" for="amount">Amount of products</label>
-                <input type="number" class="form-control" id="amount" name="amount" value="0">
+                <input type="number" class="form-control" id="amount" name="amount" value="0" min="0">
                 <span class="material-input"></span>
             </div>
             <div class="form-group">
                 <label class="control-label" for="price">Price (In euros) of one product</label>
-                <input type="number" step="0.01" class="form-control" id="price" name="price" value="0">
+                <input type="number" step="0.01" class="form-control" id="price" name="price" value="0" min="0">
                 <span class="material-input"></span>
             </div>
             <div class="form-group">

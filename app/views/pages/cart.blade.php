@@ -17,7 +17,7 @@ $fullPrice = 0;
                 $fullPrice = $fullPrice+$i->price
             ?>
             <div class="pCard">
-                <div class="pPicture"><img src="img/big/{{ $i->picture }}" /></div>
+                <div class="pPicture"><img src="img/products/{{ $i->picture }}" /></div>
                 <div class="pPadding">
                     Name
                     <hr >

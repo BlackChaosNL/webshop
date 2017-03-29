@@ -10,7 +10,7 @@
         <tbody>
             @foreach($orders as $order)
                 <tr>
-                    <th scope="row" class="#">{{ App\Product::where('id', $order->id)->first()->name }}</th>
+                    <th scope="row" class="#">{{ App\Product::where('id', $order->product_id)->first()->name }}</th>
                     <td>{{ $order->pieces }}</td>
                     <td><span class="glyphicon glyphicon-euro"></span> {{ $order->amount }}</td>
                 </tr>
