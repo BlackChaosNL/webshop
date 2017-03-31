@@ -11,6 +11,7 @@
         </thead>
         <tbody>
             @foreach($products as $product)
+                @if($product->piece >= 1)
                 <tr>
                     <td>{{ App\Category::where('id', $product->category)->first()->cat_name }}</td>
                     <td>{{ $product->name }}</td>
@@ -24,6 +25,7 @@
                         </center>
                     </td>
                 </tr>
+                @endif
             @endforeach
         </tbody>
         {{ $products->links() }}

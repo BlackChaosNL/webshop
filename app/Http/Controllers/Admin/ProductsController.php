@@ -44,6 +44,7 @@ class ProductsController extends Controller
         }
         $p->price = $r->price;
         $p->save();
+        \Session::flash('product', 'The product has been created');
         return back();
     }
 
@@ -55,8 +56,22 @@ class ProductsController extends Controller
     }
 
     public function updateProduct(Request $r){
-        $product = App\Product::where('id', $r->id)->first();
-        printf($product);
+        $p = App\Product::where('id', $r->id)->first();
+        $p->name = $r->product_name;
+        $p->piece = $r->amount;
+        $p->category = $r->category;
+        $p->small_desc = $r->sdescription;
+        $p->large_desc = $r->ldescription;
+        if($r->hasFile('picture') && $r->file('picture')->isValid()){
+            $img = $r->file('picture');
+            $fileName = rand(11111, 99999) . '_' . $img->getClientOriginalName();
+            $img->move('img/products/', $fileName);
+            $p->picture = $fileName;
+        }
+        $p->price = $r->price;
+        $p->save();
+        \Session::flash('product', 'The product has been updated!');
+        return back();
     }
 
     public function deleteProduct($id = null){

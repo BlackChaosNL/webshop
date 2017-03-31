@@ -1,8 +1,12 @@
 @extends('layouts.admin')
 @section('adminPanel')
+    @if(Session::has('product'))
+        <div class="alert-box information">
+            <h2>{{ Session::get('product') }}</h2>
+        </div>
+    @endif
     <form class="well well-lg form-horizontal" method="POST" target="/edit"  enctype="multipart/form-data">
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>" >
-        <input type="hidden" name="id" value="{{ $product->id }}" >
         <fieldset>
             <legend>EDIT PRODUCT</legend>
             <div class="form-group">
