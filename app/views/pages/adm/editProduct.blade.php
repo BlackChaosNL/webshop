@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label" for="ldescription">Large description</label>
-                <textarea class="form-control" rows="3" id="ldescription" name="ldescription">{{ $product->large_desc }}</textarea>
+                <textarea class="form-control" rows="3" id="ldescription" name="ldescription">{!! $product->large_desc !!}</textarea>
                 <span class="material-input"></span>
             </div>
             <div class="form-group">

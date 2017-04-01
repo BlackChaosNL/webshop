@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'sqlsrv'),
 
     /*
     |--------------------------------------------------------------------------
@@ -58,6 +58,7 @@ return [
             'database'  => env('DB_DATABASE', 'webshop'),
             'username'  => env('DB_USERNAME', 'webshop'),
             'password'  => env('DB_PASSWORD', 'webshop'),
+            'port'      => env('DB_PORT', 3306),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
