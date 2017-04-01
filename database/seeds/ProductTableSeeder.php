@@ -11,7 +11,7 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Product')->insert([
+        DB::table('product')->insert([
             'name' => 'Jeffrey',
             'piece' => 1,
             'category' => 1,
@@ -20,7 +20,7 @@ class ProductTableSeeder extends Seeder
             'picture' => 'afp-cute-puppy.jpg',
             'price' => rand(1, 999)
         ]);
-        DB::table('Product')->insert([
+        DB::table('product')->insert([
             'name' => 'George',
             'piece' => 1,
             'category' => 1,
@@ -29,7 +29,7 @@ class ProductTableSeeder extends Seeder
             'picture' => 'images (1).jpg',
             'price' => rand(1, 999)
         ]);
-        DB::table('Product')->insert([
+        DB::table('product')->insert([
             'name' => 'Lucas',
             'piece' => 1,
             'category' => 2,
@@ -38,7 +38,7 @@ class ProductTableSeeder extends Seeder
             'picture' => '3528kitten.jpg',
             'price' => rand(1, 999)
         ]);
-        DB::table('Product')->insert([
+        DB::table('product')->insert([
             'name' => 'Mary',
             'piece' => 1,
             'category' => 2,

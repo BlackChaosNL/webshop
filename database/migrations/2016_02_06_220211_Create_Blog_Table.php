@@ -12,7 +12,7 @@ class CreateBlogTable extends Migration
      */
     public function up()
     {
-        Schema::create('Blog', function (Blueprint $table) {
+        Schema::create('blog', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->longText('blog')->nullable();
@@ -27,6 +27,6 @@ class CreateBlogTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Blog');
+        Schema::drop('blog');
     }
 }

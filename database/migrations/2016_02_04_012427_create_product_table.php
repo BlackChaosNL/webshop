@@ -12,7 +12,7 @@ class CreateProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('Product', function (Blueprint $table) {
+        Schema::create('product', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('piece');
@@ -23,7 +23,7 @@ class CreateProductTable extends Migration
             $table->decimal('price');
             $table->timestamps();
 
-            $table->foreign('category')->references('id')->on('Categories');
+            $table->foreign('category')->references('id')->on('categories');
         });
     }
 
@@ -34,6 +34,6 @@ class CreateProductTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Product');
+        Schema::drop('product');
     }
 }
