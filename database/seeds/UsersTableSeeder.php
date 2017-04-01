@@ -17,10 +17,10 @@ class UsersTableSeeder extends Seeder
             'surname' => 'Vijgen',
             'password' => bcrypt('admin'),
             'role' => 1,
-            'address' => '',
-            'housenr' => rand(1,600),
-            'zipcode' => rand(4,4).''.str_random(2),
-            'place' => '',
+            'address' => 'Van Delfthof',
+            'housenr' => 209,
+            'zipcode' => '5038BX',
+            'place' => 'NB',
             'country' => 'Netherlands'
         ]);
     }
