@@ -31,10 +31,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::group(['prefix' => 'cart'], function(){
         Route::get('/add/{id}', [
             'uses' => 'CartController@addToCart'
-        ])->where('id', '([1-9]+)');
+        ])->where('id', '([0-9]+)');
         Route::get('/remove/{id}', [
             'uses' => 'CartController@removeFromCart'
-        ])->where('id', '([1-9]+)');
+        ])->where('id', '([0-9]+)');
         Route::get('/clear', 'CartController@clearCart');
         Route::get('/purchase', 'CartController@checkOutCart');
     });
